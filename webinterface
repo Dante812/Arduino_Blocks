@@ -1,0 +1,23 @@
+use Abills::HTML;
+
+=head2 Arduino_Blocks_module_start_page
+  description
+=cut
+sub Arduino_Blocks_module_start_page {
+  my ($attr) = @_;
+
+  my %START_PAGE_F = ('Arduino_Blocks_module_sp_report' => 1 );
+
+  return \%START_PAGE_F;
+}
+
+sub Arduino_Blocks_module_sp_report {
+$html->tpl_show(_include('hello','Arduino_Blocks_module'), {USERNAME => "GASAI"});
+$html->tpl_show(_include('hello','Arduino_Blocks_module'), {USERNAME => "Yukkie"});
+}
+
+sub print_hello_world {
+  $html->tpl_show(_include('test','Arduino_Blocks_module'),{});
+}
+
+1;
