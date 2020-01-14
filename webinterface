@@ -1,23 +1,11 @@
 use Abills::HTML;
 
-=head2 Arduino_Blocks_module_start_page
-  description
+=head2 Arduino_Blocks_start_code_creator
+  starts the code creation page
 =cut
-sub Arduino_Blocks_module_start_page {
-  my ($attr) = @_;
 
-  my %START_PAGE_F = ('Arduino_Blocks_module_sp_report' => 1 );
-
-  return \%START_PAGE_F;
-}
-
-sub Arduino_Blocks_module_sp_report {
-$html->tpl_show(_include('hello','Arduino_Blocks_module'), {USERNAME => "GASAI"});
-$html->tpl_show(_include('hello','Arduino_Blocks_module'), {USERNAME => "Yukkie"});
-}
-
-sub print_hello_world {
-  $html->tpl_show(_include('test','Arduino_Blocks_module'),{});
+sub Arduino_Blocks_start_code_creator {
+  $html->tpl_show(_include('code_creator','Arduino_Blocks'),{});
 }
 
 1;

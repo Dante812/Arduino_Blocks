@@ -321,3 +321,8 @@
 
 <!-- підключення мого скріпта -->
 <script src="https://localhost:9443/styles/default_adm/js/modules/Arduino_Blocks_module_js/test.js"></script>
+<!-- 
+  підключення скріпта по цьому шляху styles/default_adm/js/modules/Arduino_Blocks_module_js/test.js
+  не працює оскільки фреймворк його шукає по адресу
+  https://localhost:9443/admin/styles/default_adm/js/modules/Arduino_Blocks_module_js/test.js 
+-->

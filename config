@@ -1,5 +1,4 @@
 
 %FUNCTIONS_LIST = (
-"01:0:HELLO:Arduino_Blocks_module_sp_report:" => 5,
-"02:0:Test:print_hello_world:" => 5,
+"01:0:Code_Creator:Arduino_Blocks_start_code_creator:" => 5,
 );
