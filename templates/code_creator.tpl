@@ -1,33 +1,5 @@
 
 <div class="container">
-  <div class="row mb-5">
-    <div class="col-md-12">
-      <!-- тут буде верхнє меню -->
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <!-- Logo -->
-        <a class="navbar-brand" href="index.html">Logo</a>
-        <!-- Links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Головна</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="codeCreator.html">Створити скрипт</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="manual.html">Інструкція</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="comands.html">Команди</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="examples.html">Приклади</a>
-          </li>
-        </ul>
-      </nav>
-      <br>
-    </div>
-  </div>
   <div class="row">
     <div class="col-md-12 border">
       <h2 class="text-center">Void Setup</h2>
