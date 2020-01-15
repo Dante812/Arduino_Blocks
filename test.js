@@ -1,3 +1,5 @@
+
+/*this file is a backup*/
 class GlobalHandler {
   /**
    * конструктор класу для роботи з глобальними змінними
