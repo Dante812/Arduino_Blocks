@@ -45,7 +45,7 @@ class GlobalHandler {
    */
   addVariableInList(variableType, variableName, variableValue){
     let id = this.elementId+"var";
-    this.variablesData.set(id,variableType+" "+variableName+" = "+variableValue+";");
+    this.variablesData.set(id,variableType+" "+variableName+" = "+variableValue+";"+"<br>");
     this.elementId++;
     return id;
   }
@@ -67,21 +67,19 @@ class GlobalHandler {
    */
   addElementInList(elementPin, elementName){
     let id = this.elementId+"elem";
-    this.elementsData.set(id, "#define "+elementName+" "+elementPin);
+    this.elementsData.set(id, "#define "+elementName+" "+elementPin+"<br>");
     this.elementId++;
     return id;
   }
   /**
-   * 
+   * add pinModes in hesh pinModes 
+   *
    * @param {string} elementType 
    * @param {string} elementName
-   * @returns {string} 
+   * @param {string} elementId
    */
-  addPinModeInList(elementType, elementName){
-    let id = this.elementId+"pinId";
-    this.pinModesData.set("pinMode("+elementName+", "+elementType+");");
-    this.elementId++;
-    return id;
+  addPinModeInList(elementType, elementName, id){
+    this.pinModesData.set(id,"pinMode("+elementName+", "+elementType+");"+"<br>");
   }
   /**
    * видаляємо елемент з хешу елементів
@@ -90,6 +88,7 @@ class GlobalHandler {
    */
   deleteElementFromList(elementId){
     this.elementsData.delete(elementId);
+    this.pinModesData.delete(elementId);
   }
   /**
    * додаємо функцію в хеш функцій
@@ -99,7 +98,7 @@ class GlobalHandler {
    */
   addActionInList(action){
     let id = this.elementId+"act";
-    this.actionsData.set(id, action);
+    this.actionsData.set(id, action+"<br>");
     this.elementId++;
     return id;
   }
@@ -263,7 +262,7 @@ class GlobalHandler {
   getSerialBegin(){
     this.createSerialBegin();
     console.log("Serial.begin("+this.serialBegin+");");
-    return this.serialBegin;
+    return "Serial.begin("+this.serialBegin+");";
   }
   /**
    * відправляємо дані на сервер
@@ -273,16 +272,17 @@ class GlobalHandler {
     // this.inputElements.value = this.createElementsText();
     // this.inputActions.value = this.createActionsText();
     // this.inputSerialBegin.value = this.getSerialBegin();
-    this.createVariablesText();
-    this.createElementsText();
-    console.log("void setup{"+"\n");
-    this.createPinModes();
-    this.getSerialBegin();
-    console.log("}"+"\n");
-    console.log("void loop{"+"\n");
-    this.createActionsText();
-    console.log("}"+"\n");
-    
+    let codeElement = document.getElementById('code');
+    codeElement.innerHTML = "";
+    codeElement.insertAdjacentHTML("beforeEnd", this.createVariablesText());
+    codeElement.insertAdjacentHTML("beforeEnd", this.createElementsText());
+    codeElement.insertAdjacentHTML("beforeEnd", "void setup{"+"<br>");
+    codeElement.insertAdjacentHTML("beforeEnd", this.createPinModes());
+    codeElement.insertAdjacentHTML("beforeEnd", this.getSerialBegin());
+    codeElement.insertAdjacentHTML("beforeEnd", "}"+"<br>");
+    codeElement.insertAdjacentHTML("beforeEnd", "void loop{"+"<br>");
+    codeElement.insertAdjacentHTML("beforeEnd", this.createActionsText());
+    codeElement.insertAdjacentHTML("beforeEnd", "}"+"<br>");
   }
 }
 // класс для обробки змінних
@@ -417,6 +417,7 @@ class ElementsHandler {
       if(this.globalHandler.addNameInList(nameElement)){
         // якщо так тоді додаємо елемент в хеш та запам'ятовуємо його id
         idElement = this.globalHandler.addElementInList(pinElement, nameElement);
+        this.globalHandler.addPinModeInList(typeElement, nameElement, idElement);
         // ТУТ КРИВО
         // створюємо текст який буде відповідати за видалення
         let deleteFunction = "elementsHandler.deleteElement(\""+idElement+"\", \""+nameElement+"\")";

@@ -127,7 +127,6 @@
             <option value="Serial.println">Serial.println</option>
             <option value="delay">delay</option>
             <option value="digitalWrite">digitalWrite</option>
-            <option value="digitalRead">digitalRead</option>
           </select>
         </div>
         <!-- кнопка додати -->
