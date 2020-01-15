@@ -31,7 +31,7 @@
 
 7. створюємо «symLink» js файлів командою
 
-`sudo ln -s  /usr/abills/Abills/modules/Arduino_Blocks/arduino_blocks_js /usr/abills/cgi-    bin/styles/default_adm/js/modules/arduino_blocks_js`
+`sudo ln -s  /usr/abills/Abills/modules/Arduino_Blocks/arduino_blocks_js /usr/abills/cgi-bin/styles/default_adm/js/modules/arduino_blocks_js`
 
 8. тепер в інтерфейсі Abills в меню «Настройка» появиться модуль «Code_Creator»
 ***
