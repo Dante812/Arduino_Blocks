@@ -262,7 +262,7 @@ class GlobalHandler {
   getSerialBegin(){
     this.createSerialBegin();
     console.log("Serial.begin("+this.serialBegin+");");
-    return "Serial.begin("+this.serialBegin+");";
+    return "Serial.begin("+this.serialBegin+");"+"<br>";
   }
   /**
    * відправляємо дані на сервер
